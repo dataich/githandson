@@ -1,0 +1,4 @@
+www:
+  requirements:
+    - express
+    - socket.io
