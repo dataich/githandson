@@ -6,13 +6,13 @@
   app.configure(function() {
     app.use(express.methodOverride());
     app.use(express.bodyParser());
-    return app.use(express.static(__dirname + 'js'));
+    return app.use(express.static(__dirname + '/public'));
   });
   app.get('/', function(req, res) {
     return res.sendfile('views/index.html');
   });
-  app.get('/js/client.js', function(req, res) {
-    return res.sendfile('js/client.js');
+  app.get('/public/*', function(req, res) {
+    return res.sendfile('.' + req.url);
   });
   app.listen(8080);
   socket = io.listen(app);

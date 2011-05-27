@@ -6,7 +6,7 @@ $(document).ready () ->
 #    alert 'connect'
     
   socket.on 'message', (message) ->
-    $('#main').html message
+    $('#content').html message
     
 #  socket.on 'disconnect', ->
 #    alert 'disconnect'

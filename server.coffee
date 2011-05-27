@@ -5,14 +5,14 @@ app = express.createServer()
 app.configure ->
   app.use express.methodOverride()
   app.use express.bodyParser()
-  app.use express.static __dirname + 'js'
+  app.use express.static __dirname + '/public'
 
 app.get '/', (req, res) ->
   res.sendfile 'views/index.html'
 
 #express.staticが効いてくれないので暫定対応
-app.get '/js/client.js', (req, res) ->
-  res.sendfile 'js/client.js'
+app.get '/public/*', (req, res) ->
+  res.sendfile '.' + req.url
 
 app.listen 8080
 socket = io.listen app

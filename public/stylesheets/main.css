@@ -1,0 +1,61 @@
+body { background: #fff url(/public/images/layout/body.gif) top center no-repeat; font-family: Arial, Helvetica, sans-serif; }
+
+#header { width: 960px; margin: 0 auto; height: 118px; position: relative; }
+#header h1 { padding-top: 29px; }
+#header h1 a { background: url(/public/images/layout/logo.png) no-repeat; display: block; text-indent: -5000px; width: 220px; height: 30px; }
+
+#header ul { position: absolute; top: 88px; left: 0; }
+#header ul li { display: inline; }
+#header ul li a { font-size: 11px; text-decoration: none; text-transform: uppercase; margin-right: 20px; color: #fff; }
+#header ul li a:hover, #header ul li a.active { color: #acfc5d; }
+
+#content { background: url(/public/images/layout/content.gif) top repeat-x; margin-bottom: 20px; }
+#content-inner { width: 960px; margin: 0 auto; padding: 30px 0; }
+#content .column { width: 305px; float: left; margin-right: 20px; margin-bottom: 20px;}
+#content .column.last { margin-right: 0; }
+#content .column h3 { font-size:20px; font-weight:bold; height: 16px; width: 300px; margin-bottom: 8px; }
+#content .column p { font-size: 11px; line-height: 1.6; margin-bottom: 12px; color: #333; }
+#content .column a { color: #6fa235; }
+#content .column a:hover { color: #527628; }
+#content .column p.read-more a { display: block; width: 95px; height: 23px; font-size: 11px; text-decoration: none; color: #360; background: url(/public/images/buttons/read_more.gif) left no-repeat; text-align: center; padding-top: 5px; }
+#content .column p.read-more a:hover { background-position: right; }
+#content .column img.left { float: left; margin: 3px 10px 0 0; padding: 1px; background: #fff; border: 2px solid #ececec; }
+#content .column strong { font-weight: bold; }
+#content .column em { font-style: italic; }
+
+#content .column.main { width: 600px; }
+#content .column.main h2, #content .column.main h3, #content .column.main h4, #content .column.main h5 { margin-bottom: 12px; font-weight: bold; color: #333; }
+#content .column.main h2 { text-indent: -5000px; height: 15px; width: 590px; }
+#content .column.main h2#lorem { background: url(/public/images/headings/lorem.png) no-repeat; }
+#content .column.main h3 { text-indent: 0; font-size: 14px; }
+#content .column.main h4 { font-size: 12px; }
+#content .column.main h5 { font-size: 11px; }
+#content .column.main table { width: 100%; border: 1px solid #e3e3e3; font-size: 11px; margin-bottom: 12px; }
+#content .column.main table th { padding: 6px 10px; border: 1px solid #e3e3e3; font-weight: bold; color: #6fa235; }
+#content .column.main table td { padding: 6px 10px; border: 1px solid #e3e3e3; color: #333; }
+#content .column.main table .odd { background: #fafafa; }
+#content .column.main ul li { font-size: 11px; margin-left: 25px; list-style: disc; }
+
+#content .column.sidebar { width: 310px; float: right; margin-right: 0; }
+#content .column.sidebar h3 { text-indent: -5000px; height: 15px; width: 310px; }
+#content .column.sidebar h3#example { background: url(/public/images/headings/example.png) no-repeat; }
+#content .column.sidebar h3#touch { background: url(/public/images/headings/touch.png) no-repeat; }
+#content .column.sidebar p { color: #666; }
+#content .column.sidebar p.read-more { margin-bottom: 20px; }
+#content .column.sidebar fieldset label { font-size: 11px; display: block; margin-bottom: 5px; color: #666; }
+#content .column.sidebar fieldset li { margin-bottom: 10px; }
+#content .column.sidebar fieldset .text, #content .column.sidebar fieldset textarea { border: 1px solid #e3e3e3; -webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px; padding: 3px; font-size: 11px; color: #666; width: 202px; }
+#content .column.sidebar fieldset .text:hover, #content .column.sidebar fieldset textarea:hover { border: 1px solid #c5c4c4; }
+#content .column.sidebar fieldset textarea { height: 90px; width: 302px; }
+#content .column.sidebar fieldset .button { background: url(/public/images/buttons/read_more.gif) no-repeat; width: 95px; height: 28px; text-align: center; color: #360; font-size: 11px; border: none; cursor: pointer; }
+#content .column.sidebar fieldset .button:hover { background-position: right; }
+
+
+#footer { clear: both; margin: 0 auto; width: 940px; padding: 6px 10px 12px 10px; border-top: 1px solid #e5e5e5; position: relative; }
+#footer ul li { display: inline; }
+#footer ul li a { font-size: 11px; text-decoration: none; color: #b5b5b5; margin-right: 12px; }
+#footer ul li a.active, #footer ul li a:hover { color: #6b9f3c; }
+#footer p { position: absolute; right: 10px; top: 10px; font-size: 11px; color: #b5b5b5; }
+#footer p a { text-decoration: none; color: #6b9f3c; }

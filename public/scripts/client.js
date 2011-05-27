@@ -4,7 +4,7 @@
     socket = new io.Socket(null);
     socket.connect();
     return socket.on('message', function(message) {
-      return $('#main').html(message);
+      return $('#content').html(message);
     });
   });
 }).call(this);
