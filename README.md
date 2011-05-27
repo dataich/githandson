@@ -1,10 +1,10 @@
 # 何をするか
-分散リポジトリでの共同作業の楽しさを感じていただくために、DotCloud（Node.js）とGitHubを連携してPushすると同時にDotCloudのページを更新する。
+- Node.jsアプリ（DotCloud上）と、GitHubリポジトリとの連携で分散リポジトリでの共同作業の楽しさを感じてもらいます。
+- GitHubリポジトリ（https://github.com/dataich/githandson-html/）にPushすると、Service Hookを使って、Node.jsアプリにPOSTで通知します。
+- Node.jsアプリは最新のindex.htmlをGitHubリポジトリから取得し、ページをリアルタイム（Socket.IO）で更新します。
 
-# どう実現する
-1. CollaboratorsがGitHub（https://github.com/dataich/githandson-html/）にPushする。
-2. GitHub側でService Hookを使ってPushがあったことをDotCloudにPost伝える。
-3. DotCloudでGitHubリポジトリのindex.htmlを取得し、ページをリアルタイムで更新する。
+# イメージ
+DotCloud(githandson) <--> githandson-html <-- Collaborators
 
-#イメージ
-DotCloud(githandson) <-> githandson-html <- Collaborators
+# URL
+http://www.githandson.dotcloud.com/
