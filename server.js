@@ -29,14 +29,16 @@
       return console.log('disconnect');
     });
   });
-  sendToClient = function(client) {
+  sendToClient = function(client, broadcast) {
     client.send(global.body);
-    return client.broadcast(global.body);
+    if (broadcast) {
+      return client.broadcast(global.body);
+    }
   };
   getBodyHTML = function(client, force) {
     var https, options;
     if (force === false && (global.body != null)) {
-      sendToClient(client);
+      sendToClient(client, false);
     }
     options = {
       host: 'github.com',
@@ -50,7 +52,7 @@
         return console.log(data);
       });
       res.on('end', function() {
-        return sendToClient(client);
+        return sendToClient(client, true);
       });
       return res.on('error', function(error) {
         return console.log(error);

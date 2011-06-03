@@ -31,13 +31,13 @@ socket.on 'connection', (client) ->
   client.on 'disconnect',  ->
     console.log 'disconnect'
 
-sendToClient = (client) ->
+sendToClient = (client, broadcast) ->
   client.send global.body
-  client.broadcast global.body
+  client.broadcast global.body if broadcast
   
 getBodyHTML = (client, force) ->
   if force is false and global.body?
-    sendToClient client
+    sendToClient client, false
   
   options =
     host: 'github.com'
@@ -52,7 +52,7 @@ getBodyHTML = (client, force) ->
       console.log data
       
     res.on 'end',  ->
-      sendToClient client
+      sendToClient client, true
       
     res.on 'error', (error) ->
       console.log error
