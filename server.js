@@ -1,5 +1,5 @@
 (function() {
-  var app, express, getBodyHTML, io, sendToClient, socket;
+  var app, express, getBodyHTML, io, socket;
   express = require('express');
   io = require('socket.io');
   app = express.createServer();
@@ -19,7 +19,7 @@
   socket.on('connection', function(client) {
     getBodyHTML(client);
     app.post('/notify', function(req, res) {
-      getBodyHTML(client, true);
+      getBodyHTML(null);
       return res.end;
     });
     client.on('message', function(message) {
@@ -29,16 +29,11 @@
       return console.log('disconnect');
     });
   });
-  sendToClient = function(client, broadcast) {
-    client.send(global.body);
-    if (broadcast) {
-      return client.broadcast(global.body);
-    }
-  };
-  getBodyHTML = function(client, force) {
+  getBodyHTML = function(client) {
     var https, options;
-    if (force === false && (global.body != null)) {
-      sendToClient(client, false);
+    if ((client != null) && (global.body != null)) {
+      client.send(global.body);
+      return;
     }
     options = {
       host: 'github.com',
@@ -52,7 +47,7 @@
         return console.log(data);
       });
       res.on('end', function() {
-        return sendToClient(client, true);
+        return socket.broadcast(global.body);
       });
       return res.on('error', function(error) {
         return console.log(error);

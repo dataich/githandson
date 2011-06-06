@@ -22,7 +22,7 @@ socket.on 'connection', (client) ->
       
   #これをPOSTにしてGitHubのService Hookで叩く
   app.post '/notify', (req, res) ->
-    getBodyHTML client, true
+    getBodyHTML null
     res.end
 
   client.on 'message', (message) ->
@@ -31,13 +31,10 @@ socket.on 'connection', (client) ->
   client.on 'disconnect',  ->
     console.log 'disconnect'
 
-sendToClient = (client, broadcast) ->
-  client.send global.body
-  client.broadcast global.body if broadcast
-  
-getBodyHTML = (client, force) ->
-  if force is false and global.body?
-    sendToClient client, false
+getBodyHTML = (client) ->
+  if client? and global.body?
+    client.send global.body
+    return
   
   options =
     host: 'github.com'
@@ -52,8 +49,7 @@ getBodyHTML = (client, force) ->
       console.log data
       
     res.on 'end',  ->
-      sendToClient client, true
+      socket.broadcast global.body
       
     res.on 'error', (error) ->
       console.log error
-    
