@@ -14,14 +14,14 @@
   app.get('/public/*', function(req, res) {
     return res.sendfile('.' + req.url);
   });
+  app.post('/notify', function(req, res) {
+    getBodyHTML(null);
+    return res.end;
+  });
   app.listen(8080);
   socket = io.listen(app);
   socket.on('connection', function(client) {
     getBodyHTML(client);
-    app.post('/notify', function(req, res) {
-      getBodyHTML(null);
-      return res.end;
-    });
     client.on('message', function(message) {
       return console.log('message');
     });

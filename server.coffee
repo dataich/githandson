@@ -13,17 +13,17 @@ app.get '/', (req, res) ->
 #express.staticが効いてくれないので暫定対応
 app.get '/public/*', (req, res) ->
   res.sendfile '.' + req.url
+  
+#これをPOSTにしてGitHubのService Hookで叩く
+app.post '/notify', (req, res) ->
+  getBodyHTML null
+  res.end
 
 app.listen 8080
 socket = io.listen app
 
 socket.on 'connection', (client) ->
   getBodyHTML client
-      
-  #これをPOSTにしてGitHubのService Hookで叩く
-  app.post '/notify', (req, res) ->
-    getBodyHTML null
-    res.end
 
   client.on 'message', (message) ->
     console.log 'message'
