@@ -36,8 +36,8 @@
       return;
     }
     options = {
-      host: 'github.com',
-      path: '/dataich/githandson-html/raw/master/index.html'
+      host: 'raw.github.com',
+      path: '/dataich/githandson-html/master/index.html'
     };
     https = require('https');
     return https.get(options, function(res) {
