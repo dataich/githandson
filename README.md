@@ -7,4 +7,4 @@
 DotCloud(githandson) <--> githandson-html <-- Collaborators
 
 # URL
-http://www.githandson.dotcloud.com/
+http://df647abd.dotcloud.com/
